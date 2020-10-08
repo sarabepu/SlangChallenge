@@ -14,7 +14,9 @@ time complexity: O(len(text))
 """
 def calculateNGrams(text:str,n:int)-> List[str]:
     # Edge cases
-    if not n or len(text)<n:
+    if not n or not text:
+        return ['']
+    elif len(text)<n:
         return []
     else:
         currentNgram= deque()
@@ -49,7 +51,6 @@ def mostFrequentNGram(text:str, n:int)-> str:
     for ngram in ngrams:
         ngram=ngram.lower()
         hash_ngrams[ngram]= hash_ngrams.get(ngram,0)+1
-    print(hash_ngrams)
     ans=''
     freq=0
     for key in hash_ngrams:
@@ -58,11 +59,27 @@ def mostFrequentNGram(text:str, n:int)-> str:
     return ans
 
 
+if __name__ =='__main__':
+    print("Welcome to my slang engineering challenge!")
+    print('Input the text and n separated by <$> without quotes (i.e: Slang$3)')
+    text,n=input().split('$')
+    n=int(n)
+    while 1:
+        print('Now please select an option\n 1) First step\n 2) Second step\n 3) Update parameters')
+        op=input()
+        if op=='1':
+            # First step 
+            print('The ngrams are: ',calculateNGrams(text,n))
+        elif op =='2': 
+            
+            # Second step 
+            print("The most frecuent ngram is: '{}' ".format(mostFrequentNGram(text,n)))
+        else:
+            print('Input the text and n separated by <$> without quotes (i.e: Slang$3)')
+            text,n=input().split('$')
+            n=int(n)
 
-# First step 
-print('First step',calculateNGrams("Slang",2))
-# Second step 
-print('Second step',mostFrequentNGram("To be or not to be",2))
+
 
 """
 FIRST STEP VALIDATION 
