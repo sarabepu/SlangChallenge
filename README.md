@@ -1,4 +1,4 @@
-# SlangChallenge 👩‍💻
+# Slang Challenge: Engineering Intern 👩‍💻
 
 This repository contains the solution to these functions:
 - A simple function that given a piece of text and an integer n, it
